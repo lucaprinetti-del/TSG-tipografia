@@ -655,7 +655,7 @@ ul{margin:0; padding:0;}
 
       <div class="form-card">
         <div class="form-success" id="form-success" role="status">
-          Grazie! Il tuo messaggio e' stato preparato: ti risponderemo al piu' presto. (Form dimostrativo — collega un servizio di invio email per renderlo operativo)
+          Grazie! Abbiamo ricevuto la tua richiesta: ti risponderemo al più presto.
         </div>
         <form id="contact-form" novalidate>
           <div class="form-row">
@@ -930,18 +930,54 @@ mainNav.querySelectorAll('a').forEach(link => {
 // ---- Anno corrente nel footer ----
 document.getElementById('anno-corrente').textContent = new Date().getFullYear();
 
-// ---- Form di contatto (dimostrativo, senza backend) ----
+// ---- Form di contatto: invia i dati alla funzione serverless /api/send-quote ----
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
-contactForm.addEventListener('submit', function (e) {
+contactForm.addEventListener('submit', async function (e) {
   e.preventDefault();
   if (!contactForm.checkValidity()) {
     contactForm.reportValidity();
     return;
   }
-  formSuccess.classList.add('is-visible');
-  contactForm.reset();
-  formSuccess.scrollIntoView({behavior:'smooth', block:'center'});
+
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Invio in corso...';
+
+  const payload = {
+    nome: contactForm.nome.value,
+    email: contactForm.email.value,
+    tipoRichiesta: contactForm['tipo-richiesta'].value,
+    messaggio: contactForm.messaggio.value,
+  };
+
+  try {
+    const response = await fetch('/api/send-quote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error('Invio non riuscito');
+    }
+
+    formSuccess.textContent = 'Grazie! Abbiamo ricevuto la tua richiesta: ti risponderemo al più presto.';
+    formSuccess.classList.add('is-visible');
+    contactForm.reset();
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (error) {
+    formSuccess.textContent = 'Si è verificato un errore nell\'invio. Scrivici su WhatsApp o via email.';
+    formSuccess.style.background = '#FBEAEA';
+    formSuccess.style.borderColor = '#E0A0A0';
+    formSuccess.style.color = '#8A2E2E';
+    formSuccess.classList.add('is-visible');
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
 });
 
 // ---- Modali Privacy / Cookie ----
