@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO — modifica title e description se cambi nome o citta'
+     ============================================================ -->
+<title>Tipografia San Giuseppe – Tipografia ad Arma di Taggia (IM) | Stampa digitale e offset</title>
+<meta name="description" content="Tipografia San Giuseppe: tre generazioni di esperienza in stampa digitale e offset ad Arma di Taggia, provincia di Imperia. Biglietti da visita, brochure, grandi formati, packaging e grafica per la Riviera dei Fiori. Richiedi un preventivo.">
+<meta name="keywords" content="tipografia Arma di Taggia, tipografia Imperia, stampa digitale Riviera dei Fiori, stampa offset Liguria, grafica e stampa Taggia">
+<meta property="og:title" content="Tipografia San Giuseppe – Arma di Taggia (IM)">
+<meta property="og:description" content="Stampa digitale e offset, grafica e packaging. Tre generazioni di esperienza nelle arti grafiche.">
+<meta property="og:type" content="business.business">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+/* ====================================================================
+   1) VARIABILI — qui sono raccolti tutti i colori e i font del sito.
+      Per cambiare la palette basta modificare i valori qui sotto.
+   ==================================================================== */
+:root{
+  --white:#FFFFFF;
+  --paper:#F5F8FB;          /* sfondo leggermente azzurrato, "carta" */
+  --navy:#0B2545;           /* blu scuro principale del brand */
+  --navy-2:#13315C;         /* blu scuro secondario, per hover/gradienti */
+  --ink:#1B1F27;            /* testo principale, quasi nero */
+  --grey:#5B6472;           /* testo secondario */
+  --line:#DCE3EC;           /* linee sottili / separatori */
+  --line-strong:#B9C5D6;
+  --focus:#1B4FBF;          /* colore per il focus da tastiera (accessibilita') */
+
+  /* Colori accento ispirati ai colori primari di stampa (cyan/magenta/giallo) */
+  --accent-cyan:#0E7C86;
+  --accent-cyan-tint:#E4F2F2;
+  --accent-magenta:#B23A6B;
+  --accent-magenta-tint:#F8E9EE;
+  --accent-gold:#C9882C;
+  --accent-gold-tint:#FBF0DC;
+
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius:10px;
+  --container:1180px;
+}
+
+/* ====================================================================
+   2) RESET DI BASE
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+button{font-family:inherit;}
+h1,h2,h3{font-family:var(--font-display); margin:0 0 .5em 0; line-height:1.15; font-weight:600;}
+p{margin:0 0 1em 0;}
+ul{margin:0; padding:0;}
+
+:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 24px;
+}
+.section{
+  padding:88px 0;
+}
+@media (max-width:720px){
+  .section{padding:56px 0;}
+}
+.section-alt{background:linear-gradient(180deg, var(--accent-gold-tint) 0%, var(--paper) 100%);}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:13px;
+  color:var(--navy);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+.section-head{
+  max-width:680px;
+  margin-bottom:48px;
+}
+.section-head h2{font-size:clamp(28px,4vw,38px);}
+.section-head p{color:var(--grey); font-size:18px; margin-bottom:0;}
+
+/* ---- Elemento "firma" del sito: il mirino di registro da stampa ----
+   Le mire di registro servono in stampa per allineare i colori sulle
+   lastre. Le usiamo come piccolo simbolo ricorrente: e' un dettaglio
+   autentico del mestiere, non una decorazione a caso. */
+.reg-mark{
+  width:22px; height:22px; flex-shrink:0;
+}
+.reg-mark circle, .reg-mark line{stroke:currentColor; fill:none; stroke-width:1.6;}
+
+/* ====================================================================
+   3) BOTTONI — grandi e leggibili, pensati anche per chi e' meno
+      pratico con la tecnologia.
+   ==================================================================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 28px;
+  font-size:16px;
+  font-weight:600;
+  border-radius:var(--radius);
+  border:2px solid transparent;
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  line-height:1.2;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--navy); color:var(--white);}
+.btn-primary:hover{background:var(--navy-2);}
+.btn-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+.btn-outline:hover{background:var(--navy); color:var(--white);}
+.btn-whatsapp{background:#1F8A4C; color:var(--white);}
+.btn-whatsapp:hover{background:#176B3A;}
+.btn-block{width:100%;}
+
+/* ====================================================================
+   3.4) SITE-TOPBAR — contenitore unico per barra contatti + header.
+        Si anima con transform/opacity soltanto: proprietà gestite
+        dalla GPU (compositing), che non causano reflow del layout
+        e quindi nessuno scatto durante lo scroll.
+   ==================================================================== */
+.site-topbar{
+  position:sticky;
+  top:0;
+  z-index:60;
+  will-change:transform;
+  transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1), opacity .3s ease;
+}
+.site-topbar.is-hidden{
+  transform:translateY(-100%);
+  opacity:0;
+}
+
+/* ====================================================================
+   3.5) BARRA CONTATTI — fissa in cima alla pagina, prima di tutto.
+        Contiene indirizzo, telefono, email, orari e WhatsApp: i dati
+        che un cliente cerca per primi su un sito tecnico/B2B.
+   ==================================================================== */
+.contact-bar{
+  background:var(--navy);
+  color:#CBD6E6;
+  font-family:var(--font-mono);
+  font-size:12.5px;
+}
+.contact-bar-inner{
+  display:flex; align-items:center; gap:28px;
+  padding:9px 0;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.contact-bar-inner::-webkit-scrollbar{display:none;}
+.contact-bar-item{
+  display:flex; align-items:center; gap:7px;
+  white-space:nowrap;
+  color:#CBD6E6;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.contact-bar-item svg{width:14px; height:14px; flex-shrink:0;}
+.contact-bar-item:hover{color:var(--white);}
+.contact-bar-item.is-link{font-weight:600;}
+.contact-bar-cta{
+  margin-left:auto;
+  flex-shrink:0;
+  display:flex; align-items:center; gap:6px;
+  background:#1F8A4C; color:var(--white);
+  padding:6px 14px; border-radius:6px;
+  text-decoration:none; font-weight:600;
+}
+.contact-bar-cta svg{width:14px; height:14px;}
+@media (max-width:720px){
+  .contact-bar-inner{padding:8px 16px;}
+  .contact-bar .container{padding:0;}
+}
+
+/* ====================================================================
+   4) HEADER / NAVIGAZIONE
+   ==================================================================== */
+.site-header{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.logo{
+  display:flex; align-items:center; gap:12px;
+  text-decoration:none; color:var(--navy);
+}
+.logo-mark{
+  width:42px; height:42px; border-radius:8px;
+  background:var(--navy); color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; font-size:16px;
+  flex-shrink:0;
+}
+.logo-text{
+  font-family:var(--font-display); font-weight:600; font-size:18px;
+  line-height:1.1;
+}
+.logo-text small{
+  display:block; font-family:var(--font-body); font-weight:500;
+  font-size:12px; color:var(--grey); margin-top:2px;
+}
+.main-nav{display:flex; align-items:center; gap:32px;}
+.main-nav a{
+  text-decoration:none; color:var(--ink); font-weight:500; font-size:15px;
+}
+.main-nav a:hover{color:var(--navy);}
+.header-actions{display:flex; align-items:center; gap:12px;}
+.icon-link{
+  display:inline-flex; align-items:center; gap:8px;
+  text-decoration:none; color:var(--navy); font-weight:600; font-size:14px;
+}
+.nav-toggle{
+  display:none;
+  background:none; border:none; cursor:pointer; padding:8px;
+  color:var(--navy);
+}
+.nav-toggle svg{width:26px; height:26px;}
+
+@media (max-width:900px){
+  .main-nav{
+    position:fixed; inset:0; top:70px;
+    background:var(--white);
+    flex-direction:column; align-items:flex-start;
+    padding:28px 24px; gap:22px;
+    transform:translateX(100%);
+    transition:transform .25s ease;
+    overflow-y:auto;
+  }
+  .main-nav.is-open{transform:translateX(0);}
+  .main-nav a{font-size:18px;}
+  .nav-toggle{display:inline-flex;}
+  .header-actions .label-text{display:none;}
+}
+
+/* ====================================================================
+   5) HERO
+   ==================================================================== */
+.hero{
+  position:relative;
+  padding:64px 0 80px;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:0.8fr 1.4fr;
+  gap:48px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(34px,5vw,54px);
+  color:var(--navy);
+}
+.hero-lede{
+  font-size:19px;
+  color:var(--grey);
+  max-width:480px;
+}
+.hero-cta{
+  display:flex; flex-wrap:wrap; gap:14px; margin-top:8px;
+}
+
+.hero-photo{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  aspect-ratio:5/4;
+  width:100%;
+  margin-left:auto;
+  background:var(--paper);
+  border:1px solid var(--line);
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr; gap:32px;}
+  .hero-photo{order:-1; width:100%; aspect-ratio:4/3; margin:0 auto;}
+}
+
+/* ====================================================================
+   7) SERVIZI
+   ==================================================================== */
+.services-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.service-card{
+  border:1px solid var(--line); border-radius:var(--radius);
+  padding:28px; background:var(--white);
+  transition:border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.service-card:hover{
+  border-color:var(--navy);
+  box-shadow:0 8px 24px rgba(11,37,69,.08);
+  transform:translateY(-2px);
+}
+.service-icon{
+  width:48px; height:48px; color:var(--navy);
+  margin-bottom:16px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--accent-cyan-tint);
+}
+.service-icon svg{width:24px; height:24px; stroke:currentColor; fill:none; stroke-width:1.6;}
+.service-card:nth-child(3n+1) .service-icon{background:var(--accent-cyan-tint); color:var(--accent-cyan);}
+.service-card:nth-child(3n+2) .service-icon{background:var(--accent-magenta-tint); color:var(--accent-magenta);}
+.service-card:nth-child(3n+3) .service-icon{background:var(--accent-gold-tint); color:var(--accent-gold);}
+.service-card h3{font-size:17px; margin-bottom:8px;}
+.service-card p{color:var(--grey); font-size:15px; margin-bottom:0;}
+
+@media (max-width:900px){
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:600px){
+  .services-grid{grid-template-columns:1fr;}
+}
+
+.cta-strip{
+  background:var(--navy); color:var(--white);
+  padding:40px 0;
+}
+.cta-strip-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px; flex-wrap:wrap;
+}
+.cta-strip h2{color:var(--white); font-size:22px; margin-bottom:4px;}
+.cta-strip p{color:#9FB1CC; margin-bottom:0; font-size:14.5px;}
+.cta-strip-actions{display:flex; gap:12px; flex-wrap:wrap;}
+
+/* ====================================================================
+   10) CONTATTI
+   ==================================================================== */
+.contact-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;
+}
+.contact-list{margin-top:24px;}
+.contact-list li{
+  list-style:none; display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line);
+  align-items:flex-start;
+}
+.contact-list li:first-child{border-top:none;}
+.contact-list svg{width:22px; height:22px; color:var(--navy); flex-shrink:0; margin-top:2px;}
+.contact-list a{text-decoration:none; font-weight:600; color:var(--navy);}
+.contact-list .label{display:block; font-size:13px; color:var(--grey); margin-bottom:2px;}
+
+.map-wrap{
+  border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);
+  aspect-ratio:4/3; margin-top:24px;
+}
+.map-wrap iframe{width:100%; height:100%; border:0;}
+
+.form-card{
+  background:var(--paper); border-radius:14px; padding:32px;
+}
+.form-row{margin-bottom:18px;}
+.form-row label{
+  display:block; font-weight:600; font-size:14.5px; margin-bottom:6px;
+}
+.form-row input,
+.form-row select,
+.form-row textarea{
+  width:100%; padding:13px 14px; border:1px solid var(--line-strong);
+  border-radius:8px; font-family:inherit; font-size:15px; background:var(--white);
+  color:var(--ink);
+}
+.form-row textarea{min-height:120px; resize:vertical;}
+.form-note{font-size:13px; color:var(--grey); margin-top:14px;}
+.form-success{
+  display:none; background:#E7F4ED; border:1px solid #8FCBA8; color:#1F5E36;
+  padding:14px 16px; border-radius:8px; font-size:14.5px; margin-bottom:18px;
+}
+.form-success.is-visible{display:block;}
+
+@media (max-width:900px){
+  .contact-grid{grid-template-columns:1fr;}
+}
+
+/* ====================================================================
+   11) FOOTER
+   ==================================================================== */
+.site-footer{
+  background:var(--navy); color:#CBD6E6; padding:64px 0 28px;
+}
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px;
+}
+.site-footer h3{color:var(--white); font-family:var(--font-body); font-size:16px; margin-bottom:16px;}
+.site-footer p{color:#9FB1CC; font-size:14.5px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:10px;}
+.footer-links a{color:#CBD6E6; text-decoration:none; font-size:14.5px; background:none; border:none; cursor:pointer; padding:0; font-family:inherit;}
+.footer-links a:hover{color:var(--white); text-decoration:underline;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.15); margin-top:48px; padding-top:24px;
+  font-size:13px; color:#8198BB;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr; gap:32px;}
+}
+
+/* ====================================================================
+   12) COOKIE BANNER (GDPR) + MODALI PRIVACY/COOKIE POLICY
+   ==================================================================== */
+.cookie-banner{
+  position:fixed; left:16px; right:16px; bottom:16px; z-index:100;
+  max-width:760px; margin:0 auto;
+  background:var(--white); border:1px solid var(--line-strong);
+  border-radius:14px; padding:22px 24px; box-shadow:0 12px 32px rgba(11,37,69,.18);
+  display:none;
+}
+.cookie-banner.is-visible{display:block;}
+.cookie-banner p{font-size:14.5px; color:var(--grey); margin-bottom:16px;}
+.cookie-actions{display:flex; gap:12px; flex-wrap:wrap;}
+.cookie-actions .btn{padding:11px 18px; font-size:14px;}
+
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(11,37,69,.55);
+  display:none; align-items:center; justify-content:center;
+  padding:24px; z-index:200;
+}
+.modal-overlay.is-visible{display:flex;}
+.modal-box{
+  background:var(--white); border-radius:14px; max-width:640px; width:100%;
+  max-height:80vh; overflow-y:auto; padding:32px;
+  position:relative;
+}
+.modal-box h2{font-size:24px; color:var(--navy);}
+.modal-box h3{font-size:16px; margin-top:24px;}
+.modal-box p, .modal-box li{font-size:14.5px; color:var(--grey);}
+.modal-close{
+  position:absolute; top:18px; right:18px; background:none; border:none;
+  cursor:pointer; color:var(--grey); width:32px; height:32px;
+}
+.modal-close svg{width:100%; height:100%;}
+.modal-placeholder-tag{
+  display:inline-block; font-family:var(--font-mono); font-size:12px;
+  background:#FFF3D6; color:#8A6300; padding:4px 10px; border-radius:6px; margin-bottom:16px;
+}
+
+/* ====================================================================
+   13) WHATSAPP FLOTTANTE (mobile)
+   ==================================================================== */
+.whatsapp-float{
+  position:fixed; bottom:20px; right:20px; z-index:90;
+  width:58px; height:58px; border-radius:50%;
+  background:#1F8A4C; color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  text-decoration:none;
+}
+.whatsapp-float svg{width:28px; height:28px;}
+
+/* Skip link per navigazione da tastiera */
+.skip-link{
+  position:absolute; left:-9999px; top:0;
+  background:var(--navy); color:var(--white); padding:10px 16px; z-index:300;
+}
+.skip-link:focus{left:16px; top:16px;}
+
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenuto-principale">Vai al contenuto principale</a>
+
+<div class="site-topbar" id="site-topbar">
+
+  <!-- ====================================================================
+       BARRA CONTATTI — visibile da subito, prima di tutto il resto
+       ==================================================================== -->
+  <div class="contact-bar">
+    <div class="container contact-bar-inner">
+      <span class="contact-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Via del Piano, 108/C, 18018 Taggia (IM)
+      </span>
+      <a class="contact-bar-item is-link" href="tel:+390184461048">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.32 1.9.57 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.25 1.85.44 2.81.57A2 2 0 0 1 22 16.92z"/></svg>
+        0184.461048
+      </a>
+      <a class="contact-bar-item is-link" href="mailto:info@tsgarma.it">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
+        info@tsgarma.it
+      </a>
+      <span class="contact-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Lun–Ven 8:30–12:30 / 15:00–19:00 · Sab 8:30–12:30
+      </span>
+      <a class="contact-bar-cta" href="https://wa.me/390184461048" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9 1-.9 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.9 3 4.7 4.1 2.3.9 2.8.7 3.3.6.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       HEADER
+       ==================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top">
+        <span class="logo-mark" aria-hidden="true">TSG</span>
+        <span class="logo-text">Tipografia San Giuseppe
+          <small>Arma di Taggia (IM) — dal 1958</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
+        <a href="#contatti">Contatti</a>
+        <a href="#servizi">Servizi</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary" style="padding:11px 20px; font-size:14px;" href="#contatti">
+          Richiedi preventivo
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Apri il menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+</div>
+
+<main id="contenuto-principale">
+
+<!-- ====================================================================
+     1. HOME / HERO
+     ==================================================================== -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">
+        <svg class="reg-mark" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        Tipografia ad Arma di Taggia, provincia di Imperia
+      </span>
+      <h1>Stampiamo l'immagine della tua attivita' da tre generazioni</h1>
+      <p class="hero-lede">
+        Tipografia San Giuseppe affianca negozi, ristoranti, hotel, associazioni
+        e comuni della Riviera dei Fiori con stampa digitale e offset,
+        consulenza grafica e consegne rapide, senza mai far perdere tempo a chi
+        ha bisogno di un lavoro fatto bene.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contatti">Richiedi un preventivo</a>
+        <a class="btn btn-outline" href="tel:+390184461048">Chiamaci ora</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="map-wrap" style="height:100%; width:100%; margin-top:0; border:none; border-radius:0; aspect-ratio:auto;">
+        <iframe
+          src="https://www.google.com/maps?q=Via+del+Piano+108C+18018+Taggia+IM&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mappa con la posizione della tipografia ad Arma di Taggia">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     2. CONTATTI — subito dopo la hero: chi arriva sul sito deve
+     trovare indirizzo, telefono, email, orari e form senza scorrere.
+     ==================================================================== -->
+<section class="section" id="contatti">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contatti</span>
+      <h2>Vieni a trovarci o scrivici per un preventivo</h2>
+      <p>Siamo ad Arma di Taggia, in provincia di Imperia: facile da raggiungere per tutta la zona della Riviera dei Fiori.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <span class="label">Indirizzo</span>
+              <span>Via del Piano, 108/C, 18018 Taggia (IM)</span>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.32 1.9.57 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.25 1.85.44 2.81.57A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <span class="label">Telefono</span>
+              <a href="tel:+390184461048">0184.461048</a>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
+            <div>
+              <span class="label">Email</span>
+              <a href="mailto:info@tsgarma.it">info@tsgarma.it</a>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+            <div>
+              <span class="label">Orari</span>
+              <span>Lun–Ven 8:30–12:30 e 15:00–19:00 · Sab 8:30–12:30</span>
+            </div>
+          </li>
+        </ul>
+
+        <a class="btn btn-whatsapp btn-block" style="margin-top:20px;" href="https://wa.me/390184461048" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9 1-.9 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.9 3 4.7 4.1 2.3.9 2.8.7 3.3.6.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2z"/></svg>
+          Scrivici su WhatsApp
+        </a>
+      </div>
+
+      <div class="form-card">
+        <div class="form-success" id="form-success" role="status">
+          Grazie! Il tuo messaggio e' stato preparato: ti risponderemo al piu' presto. (Form dimostrativo — collega un servizio di invio email per renderlo operativo)
+        </div>
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="nome">Nome e cognome</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="tipo-richiesta">Tipo di richiesta</label>
+            <select id="tipo-richiesta" name="tipo-richiesta">
+              <option value="preventivo">Richiesta preventivo</option>
+              <option value="informazioni">Informazioni generali</option>
+              <option value="grafica">Consulenza grafica</option>
+              <option value="altro">Altro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" placeholder="Descrivi cosa ti serve: tipo di stampa, quantita', formato..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Invia richiesta</button>
+          <p class="form-note">
+            Compilando il form accetti il trattamento dei dati come descritto nella
+            <button type="button" class="footer-links" style="text-decoration:underline; color:var(--navy); display:inline; font-size:13px;" id="open-privacy-from-form">Privacy Policy</button>.
+            Niente caricamento file: per allegati scrivici su WhatsApp o via email.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     3. SERVIZI
+     ==================================================================== -->
+<section class="section section-alt" id="servizi">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Servizi</span>
+      <h2>Stampa digitale e offset per ogni esigenza</h2>
+      <p>Dalla cancelleria aziendale ai grandi formati per fiere ed eventi: tutto cio' di cui un'attivita' della zona di Imperia ha bisogno per comunicare bene.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><line x1="13" y1="9" x2="19" y2="9"/><line x1="13" y1="15" x2="19" y2="15"/></svg>
+        </div>
+        <h3>Biglietti da visita, carta intestata e buste</h3>
+        <p>La prima impressione della tua attivita': cancelleria coordinata e su misura.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg>
+        </div>
+        <h3>Volantini, brochure e locandine</h3>
+        <p>Comunicazione efficace per promozioni, negozi ed eventi sul territorio.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="1"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+        </div>
+        <h3>Stampa su grandi formati</h3>
+        <p>Banner, totem e pannelli per fiere, vetrine e cantieri, pronti in tempi rapidi.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg>
+        </div>
+        <h3>Inviti, partecipazioni e menu per eventi</h3>
+        <p>Carta e stampa su misura per matrimoni, cerimonie e occasioni speciali.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+        </div>
+        <h3>Etichette e packaging</h3>
+        <p>Per chi produce e vuole distinguersi sullo scaffale: dal vasetto alla scatola.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>
+        </div>
+        <h3>Gadget personalizzati</h3>
+        <p>Oggetti promozionali con il tuo marchio, per fiere, eventi e regali aziendali.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><path d="M6 18h12v3H6z"/><rect x="4" y="9" width="16" height="9" rx="1"/></svg>
+        </div>
+        <h3>Stampa digitale e offset</h3>
+        <p>La tecnica giusta per ogni tiratura: dal pezzo unico alle grandi quantita'.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="20"/></svg>
+        </div>
+        <h3>Servizi grafici</h3>
+        <p>Progettazione layout e impaginazione con il nostro studio grafico interno.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 9v11"/></svg>
+        </div>
+        <h3>Rilegature, plastificazioni e fustellature</h3>
+        <p>La finitura che fa la differenza: dal catalogo rilegato al cartoncino sagomato.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Fascia di contatto rapido -->
+<div class="cta-strip">
+  <div class="container cta-strip-inner">
+    <div>
+      <h2>Hai un progetto di stampa da realizzare?</h2>
+      <p>Scrivici su WhatsApp con i dettagli oppure compila il form: ti rispondiamo con tempi e preventivo.</p>
+    </div>
+    <div class="cta-strip-actions">
+      <a class="btn btn-whatsapp" href="https://wa.me/390184461048" target="_blank" rel="noopener">Scrivi su WhatsApp</a>
+      <a class="btn btn-outline" style="border-color:var(--white); color:var(--white);" href="#contatti">Vai ai contatti</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ====================================================================
+     FOOTER
+     ==================================================================== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Tipografia San Giuseppe</h3>
+      <p>Tipografia ad Arma di Taggia (IM), attiva dal 1958. Stampa digitale e offset, grafica e packaging per la Riviera dei Fiori.</p>
+    </div>
+    <div>
+      <h3>Azienda</h3>
+      <ul class="footer-links">
+        <li>Tipografia San Giuseppe di [Nome Cognome]</li>
+        <li>P.IVA: [da completare]</li>
+        <li>Via del Piano, 108/C, 18018 Taggia (IM)</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Link utili</h3>
+      <ul class="footer-links">
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+        <li><button type="button" id="open-privacy">Privacy Policy</button></li>
+        <li><button type="button" id="open-cookie">Cookie Policy</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="anno-corrente"></span> Tipografia San Giuseppe — Tutti i diritti riservati</span>
+    <span>Sito realizzato per uso informativo/pubblicitario — nessuna vendita online</span>
+  </div>
+</footer>
+
+<!-- WhatsApp flottante -->
+<a class="whatsapp-float" href="https://wa.me/390184461048" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9 1-.9 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.9 3 4.7 4.1 2.3.9 2.8.7 3.3.6.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<!-- ====================================================================
+     COOKIE BANNER
+     ==================================================================== -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Informativa cookie">
+  <p>
+    Questo sito utilizza cookie tecnici necessari al funzionamento e, previo consenso,
+    cookie di analisi per capire come viene usato il sito. Puoi accettare tutti i cookie,
+    rifiutare quelli non necessari o leggere la
+    <button type="button" id="open-cookie-from-banner" style="background:none;border:none;padding:0;text-decoration:underline;color:var(--navy);cursor:pointer;font:inherit;">Cookie Policy</button>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-primary" id="cookie-accept">Accetta tutti</button>
+    <button type="button" class="btn btn-outline" id="cookie-reject">Solo necessari</button>
+  </div>
+</div>
+
+<!-- ====================================================================
+     MODALE: PRIVACY POLICY (testo segnaposto da personalizzare)
+     ==================================================================== -->
+<div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+  <div class="modal-box">
+    <button class="modal-close" data-close-modal aria-label="Chiudi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <span class="modal-placeholder-tag">Testo segnaposto — da sostituire con il testo legale reale</span>
+    <h2 id="privacy-title">Privacy Policy</h2>
+    <h3>Titolare del trattamento</h3>
+    <p>Tipografia San Giuseppe di [Nome Cognome], Via del Piano, 108/C, 18018 Taggia (IM) — P.IVA [da completare].</p>
+    <h3>Dati raccolti</h3>
+    <p>Tramite il form di contatto raccogliamo nome, email e il contenuto del messaggio inviato, esclusivamente per rispondere alla tua richiesta.</p>
+    <h3>Finalita' del trattamento</h3>
+    <p>I dati vengono utilizzati solo per gestire richieste di informazioni e preventivi, non vengono ceduti a terzi per finalita' commerciali.</p>
+    <h3>Conservazione</h3>
+    <p>I dati sono conservati per il tempo necessario a gestire la richiesta e gli eventuali obblighi di legge collegati.</p>
+    <h3>Diritti dell'interessato</h3>
+    <p>Puoi richiedere in qualsiasi momento accesso, modifica o cancellazione dei tuoi dati scrivendo all'indirizzo email indicato nei contatti.</p>
+  </div>
+</div>
+
+<!-- ====================================================================
+     MODALE: COOKIE POLICY (testo segnaposto da personalizzare)
+     ==================================================================== -->
+<div class="modal-overlay" id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+  <div class="modal-box">
+    <button class="modal-close" data-close-modal aria-label="Chiudi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <span class="modal-placeholder-tag">Testo segnaposto — da sostituire con il testo legale reale</span>
+    <h2 id="cookie-title">Cookie Policy</h2>
+    <h3>Cookie tecnici</h3>
+    <p>Necessari al funzionamento del sito (ad esempio per ricordare la tua scelta sui cookie). Non richiedono consenso.</p>
+    <h3>Cookie di analisi</h3>
+    <p>Utilizzati, previo consenso, per capire in forma aggregata come viene usato il sito e migliorarlo nel tempo.</p>
+    <h3>Come gestire i cookie</h3>
+    <p>Puoi modificare le tue preferenze in qualsiasi momento tramite il banner mostrato all'apertura del sito o dalle impostazioni del tuo browser.</p>
+  </div>
+</div>
+
+<script>
+/* ====================================================================
+   JAVASCRIPT — tutto in un unico blocco, diviso per funzione.
+   Nessun dato viene inviato a server esterni: il form e' dimostrativo.
+   ==================================================================== */
+
+// ---- Topbar (contatti + header): si nasconde scorrendo verso il basso.
+//      Lo scroll listener è "throttled" con requestAnimationFrame: il
+//      codice gira al massimo una volta per frame, mai più spesso,
+//      così lo scroll resta sempre fluido e senza scatti.
+const siteTopbar = document.getElementById('site-topbar');
+let topbarTicking = false;
+window.addEventListener('scroll', () => {
+  if (topbarTicking) return;
+  topbarTicking = true;
+  requestAnimationFrame(() => {
+    if (siteTopbar) siteTopbar.classList.toggle('is-hidden', window.scrollY > 10);
+    topbarTicking = false;
+  });
+}, { passive: true });
+
+// ---- Menu mobile ----
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+navToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// ---- Anno corrente nel footer ----
+document.getElementById('anno-corrente').textContent = new Date().getFullYear();
+
+// ---- Form di contatto (dimostrativo, senza backend) ----
+const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
+contactForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!contactForm.checkValidity()) {
+    contactForm.reportValidity();
+    return;
+  }
+  formSuccess.classList.add('is-visible');
+  contactForm.reset();
+  formSuccess.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+// ---- Modali Privacy / Cookie ----
+function apriModale(id){
+  document.getElementById(id).classList.add('is-visible');
+}
+function chiudiModali(){
+  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('is-visible'));
+}
+document.getElementById('open-privacy').addEventListener('click', () => apriModale('privacy-modal'));
+document.getElementById('open-privacy-from-form').addEventListener('click', () => apriModale('privacy-modal'));
+document.getElementById('open-cookie').addEventListener('click', () => apriModale('cookie-modal'));
+document.getElementById('open-cookie-from-banner').addEventListener('click', () => apriModale('cookie-modal'));
+document.querySelectorAll('[data-close-modal]').forEach(btn => btn.addEventListener('click', chiudiModali));
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) chiudiModali(); });
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') chiudiModali(); });
+
+// ---- Cookie banner GDPR ----
+const cookieBanner = document.getElementById('cookie-banner');
+const COOKIE_KEY = 'tsg_cookie_consent';
+
+function mostraBannerSeNecessario(){
+  if (!localStorage.getItem(COOKIE_KEY)) {
+    cookieBanner.classList.add('is-visible');
+  }
+}
+document.getElementById('cookie-accept').addEventListener('click', () => {
+  localStorage.setItem(COOKIE_KEY, 'accepted');
+  cookieBanner.classList.remove('is-visible');
+});
+document.getElementById('cookie-reject').addEventListener('click', () => {
+  localStorage.setItem(COOKIE_KEY, 'rejected');
+  cookieBanner.classList.remove('is-visible');
+});
+mostraBannerSeNecessario();
+</script>
+
+</body>
+</html>
